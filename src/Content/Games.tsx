@@ -1,5 +1,5 @@
 import React from 'react';
-import './Media.css';
+import './media.css';
 
 // Import all game images
 import minecraft from '../assets/games/minecraft.png';
