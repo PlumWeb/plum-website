@@ -1,0 +1,17 @@
+Change the Icon at the top
+add 3 clickable Icons, which open windows.
+Modify the Windows -> Only x
+-> Different Colors
+add music
+add content 
+-> track visits
+-> Guest Book?
+
+ReAdd content
+Fix Bugs -> Red X, Ready at the bottom, mobile?, error loading status
+
+
+
+
+
+Accounts erstellen?

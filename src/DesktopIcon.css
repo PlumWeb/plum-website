@@ -1,0 +1,153 @@
+.desktop-icon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  padding: 8px;
+  margin: 8px;
+  cursor: pointer;
+  user-select: none;
+  border: 2px solid transparent;
+  background: transparent;
+  transition: background-color 0.1s;
+  touch-action: manipulation;
+}
+
+.desktop-icon:active {
+  background-color: rgba(0, 120, 215, 0.2);
+}
+
+.desktop-icon.selected {
+  background-color: rgba(0, 120, 215, 0.3);
+  border: 2px dotted rgba(0, 120, 215, 0.8);
+  outline: 1px solid rgba(0, 120, 215, 0.6);
+  outline-offset: -3px;
+}
+
+.desktop-icon.window-open .icon-label {
+  font-weight: bold;
+}
+
+.icon-image {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  font-size: 48px;
+  flex-shrink: 0;
+}
+
+.icon-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-user-drag: none;
+}
+
+.icon-label {
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  word-wrap: break-word;
+  max-width: 100%;
+  line-height: 1.2;
+  padding: 2px 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+
+.desktop-icon.selected .icon-label {
+  background-color: rgba(0, 120, 215, 0.8);
+  color: white;
+}
+
+/* ---- Tablet (1024px and below) ---- */
+@media (max-width: 1024px) {
+  .desktop-icon {
+    width: 75px;
+    margin: 6px;
+    padding: 6px;
+  }
+
+  .icon-image {
+    width: 44px;
+    height: 44px;
+    font-size: 44px;
+    margin-bottom: 2px;
+  }
+
+  .icon-label {
+    font-size: 11px;
+  }
+}
+
+/* ---- Tablet Portrait (768px and below) ---- */
+@media (max-width: 768px) {
+  .desktop-icon {
+    width: 70px;
+    margin: 5px;
+    padding: 5px;
+  }
+
+  .icon-image {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    margin-bottom: 2px;
+  }
+
+  .icon-label {
+    font-size: 10px;
+    padding: 2px 2px;
+  }
+}
+
+/* ---- Phone (480px and below) ---- */
+@media (max-width: 480px) {
+  .desktop-icon {
+    width: 60px;
+    margin: 4px;
+    padding: 4px;
+    min-height: 70px;
+    justify-content: space-between;
+  }
+
+  .icon-image {
+    width: 36px;
+    height: 36px;
+    font-size: 36px;
+    margin-bottom: 2px;
+  }
+
+  .icon-label {
+    font-size: 9px;
+    padding: 1px 2px;
+    line-height: 1.1;
+  }
+}
+
+/* ---- Very Small Phone (320px and below) ---- */
+@media (max-width: 320px) {
+  .desktop-icon {
+    width: 50px;
+    margin: 2px;
+    padding: 2px;
+    min-height: 60px;
+  }
+
+  .icon-image {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    margin-bottom: 1px;
+  }
+
+  .icon-label {
+    font-size: 8px;
+    padding: 1px;
+  }
+}

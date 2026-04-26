@@ -1,0 +1,93 @@
+.window {
+  position: fixed;
+  width: 800px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  user-select: none;
+}
+
+.title-bar {
+  cursor: move;
+  flex-shrink: 0;
+}
+
+.window-body {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.status-bar {
+  flex-shrink: 0;
+}
+
+/* ✅ EXPLICIT BUTTON STYLING - Override everything */
+.title-bar-controls button {
+  width: 16px;
+  height: 14px;
+  margin-left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: #c0c0c0;
+  border: 1px outset #dfdfdf;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  cursor: pointer;
+  font-size: 10px;
+  color: black;
+}
+
+.title-bar-controls button:hover {
+  background-color: #e0e0e0;
+}
+
+.title-bar-controls button:active {
+  border-style: inset;
+  border-left-color: #808080;
+  border-top-color: #808080;
+  border-right-color: #dfdfdf;
+  border-bottom-color: #dfdfdf;
+}
+
+/* CLOSE BUTTON - MUST BE RED */
+.title-bar-controls button.is-close {
+  background-color: #c41e3a !important;
+  color: white !important;
+  border-color: #a01830 !important;
+}
+
+.title-bar-controls button.is-close:hover {
+  background-color: #e81b48 !important;
+  color: white !important;
+}
+
+.title-bar-controls button.is-close:active {
+  background-color: #a01830 !important;
+  color: white !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .window {
+    width: 90vw;
+    max-height: 70vh;
+    left: 5vw !important;
+    top: 10vh !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .window {
+    width: 95vw;
+    max-height: 75vh;
+  }
+
+  .status-bar {
+    display: none;
+  }
+}

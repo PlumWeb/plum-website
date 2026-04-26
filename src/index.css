@@ -1,0 +1,18 @@
+body {
+  background-image: url('./assets/asadal.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #3a6ea5 0%, #67a3d9 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+#root {
+  min-height: 100vh;
+  padding: 20px;
+}

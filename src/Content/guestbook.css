@@ -1,0 +1,141 @@
+.guestbook-content {
+  padding: 0;
+  font-family: 'MS Sans Serif', Arial, sans-serif;
+  font-size: 11px;
+}
+
+.guestbook-content fieldset {
+  margin: 8px;
+  padding: 8px;
+}
+
+.guestbook-content legend {
+  font-weight: bold;
+  padding: 0 4px;
+}
+
+/* ---- Form ---- */
+.guestbook-form {
+  background: #f0f0f0;
+  border: 1px solid #bfbfbf;
+  padding: 12px;
+  margin: 8px 0;
+}
+
+.form-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #1a1a1a;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 8px;
+  border: 1px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+  background: white;
+  font-family: 'MS Sans Serif', Arial, sans-serif;
+  font-size: 12px;
+  color: #1a1a1a;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  background: #fffacd;
+  border-color: #0078d4;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-btn {
+  padding: 8px 20px;
+  background: linear-gradient(to bottom, #6dbf4a 0%, #4a9e2a 40%, #3a8a1a 100%);
+  border: 1px solid #2a6a10;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 11px;
+  transition: all 0.1s;
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to bottom, #7ecf5a 0%, #5aae3a 40%, #4a9a2a 100%);
+}
+
+.submit-btn:active {
+  background: linear-gradient(to bottom, #3a8a1a 0%, #4a9e2a 100%);
+}
+
+/* ---- Tablet (768px and below) ---- */
+@media (max-width: 768px) {
+  .guestbook-form {
+    padding: 10px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 10px;
+  }
+
+  .form-group textarea {
+    min-height: 100px;
+  }
+
+  .submit-btn {
+    font-size: 12px;
+    padding: 10px 16px;
+  }
+}
+
+/* ---- Phone (480px and below) ---- */
+@media (max-width: 480px) {
+  .guestbook-content fieldset {
+    margin: 6px;
+    padding: 6px;
+  }
+
+  .guestbook-form {
+    padding: 8px;
+  }
+
+  .form-group {
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+  }
+
+  .submit-btn {
+    font-size: 13px;
+    padding: 12px;
+    width: 100%;
+  }
+}

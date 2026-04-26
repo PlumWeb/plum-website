@@ -1,0 +1,177 @@
+.music-content {
+  padding: 0;
+  font-family: 'MS Sans Serif', Arial, sans-serif;
+  font-size: 11px;
+}
+
+.music-content fieldset {
+  margin: 8px;
+  padding: 8px;
+}
+
+.music-content legend {
+  font-weight: bold;
+  padding: 0 4px;
+}
+
+.music-section {
+  margin: 12px 0;
+  padding: 8px;
+  border: 1px solid #bfbfbf;
+  background: #f0f0f0;
+}
+
+.music-section h3 {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  color: #0078d4;
+  border-bottom: 1px solid #bfbfbf;
+  padding-bottom: 4px;
+}
+
+.music-info-box {
+  background: white;
+  border: 1px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+  padding: 8px;
+  margin: 4px 0;
+}
+
+.music-info-box p {
+  margin: 4px 0;
+  line-height: 1.6;
+}
+
+.track-card {
+  display: flex;
+  gap: 12px;
+  padding: 8px;
+  background: #f0f0f0;
+  border: 1px solid #bfbfbf;
+}
+
+.track-image {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border: 1px solid #bfbfbf;
+  flex-shrink: 0;
+}
+
+.track-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.track-title {
+  font-weight: bold;
+  color: #0078d4;
+  text-decoration: none;
+  font-size: 11px;
+  word-break: break-word;
+}
+
+.track-title:hover {
+  text-decoration: underline;
+}
+
+.track-artist {
+  color: #666;
+  font-size: 10px;
+  font-style: italic;
+}
+
+.track-album {
+  color: #999;
+  font-size: 10px;
+}
+
+.media-image {
+  max-width: 100%;
+  height: auto;
+  margin: 8px 0;
+  border: 1px solid #bfbfbf;
+}
+
+/* ---- Tablet (768px and below) ---- */
+@media (max-width: 768px) {
+  .music-content fieldset {
+    margin: 6px;
+    padding: 6px;
+  }
+
+  .music-section {
+    margin: 8px 0;
+    padding: 6px;
+  }
+
+  .track-card {
+    gap: 8px;
+  }
+
+  .track-image {
+    width: 48px;
+    height: 48px;
+  }
+
+  .track-title {
+    font-size: 10px;
+  }
+
+  .track-artist {
+    font-size: 9px;
+  }
+
+  .track-album {
+    font-size: 9px;
+  }
+}
+
+/* ---- Phone (480px and below) ---- */
+@media (max-width: 480px) {
+  .music-content fieldset {
+    margin: 4px;
+    padding: 4px;
+  }
+
+  .music-section {
+    margin: 6px 0;
+    padding: 4px;
+  }
+
+  .music-section h3 {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  .track-card {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .track-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .track-details {
+    gap: 1px;
+  }
+
+  .track-title {
+    font-size: 10px;
+  }
+
+  .track-artist {
+    font-size: 9px;
+  }
+
+  .media-image {
+    margin: 6px 0;
+  }
+}
