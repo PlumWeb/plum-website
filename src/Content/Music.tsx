@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Music.css';
+import './music.css';
 import dancer from '../assets/sponge.gif';
 import music from '../assets/disc.gif'
 
