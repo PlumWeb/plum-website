@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "7.css": "^0.21.1",
     "firebase": "^12.12.1",
     "nodejs": "^0.0.0",
     "react": "^19.2.5",
