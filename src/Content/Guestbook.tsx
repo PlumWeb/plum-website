@@ -392,7 +392,7 @@ const Guestbook: React.FC = () => {
           <div className="entries-list">
             {visitors.map((visitor, index) => (
               <div key={visitor.id} className="entry-card">
-                {/* ✅ REMOVED DELETE BUTTON */}
+                
                 <div className="entry-info">
                   <h3 className="entry-name">#{visitors.length - index}. {visitor.name}</h3>
                   <div className="entry-meta">
