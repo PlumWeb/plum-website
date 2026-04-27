@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "7.css/dist/7.css";
+import "7.css";
 import DesktopIcon from './DesktopIcon';
 import WindowComponent from './WindowComponent';
 import './App.css';

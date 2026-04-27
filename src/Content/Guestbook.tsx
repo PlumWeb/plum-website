@@ -3,7 +3,6 @@ import {
   collection,
   addDoc,
   getDocs,
-  deleteDoc,
   doc,
   updateDoc,
   query,
@@ -52,7 +51,6 @@ const Guestbook: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const visitRecordedRef = useRef(false);
 
-  // Convert country code to flag emoji
   const getCountryFlag = (code: string): string => {
     if (!code || code.length !== 2) return '🌍';
     
@@ -68,7 +66,6 @@ const Guestbook: React.FC = () => {
     }
   };
 
-  // Load data on mount
   useEffect(() => {
     const initializeData = async () => {
       const locationData = await getLocation();
@@ -85,7 +82,6 @@ const Guestbook: React.FC = () => {
     initializeData();
   }, []);
 
-  // Get user's location
   const getLocation = async (): Promise<LocationData> => {
     try {
       const response = await fetch('https://ipapi.co/json/');
@@ -104,7 +100,6 @@ const Guestbook: React.FC = () => {
       const displayLocation = `${flag} ${locationString}`;
       
       setLocation(displayLocation);
-      
 
       return { 
         location: locationString, 
@@ -122,7 +117,6 @@ const Guestbook: React.FC = () => {
     }
   };
 
-  // Load guestbook entries
   const loadGuestbookEntries = async () => {
     try {
       const q = query(
@@ -150,7 +144,6 @@ const Guestbook: React.FC = () => {
     }
   };
 
-  // Load statistics
   const loadStats = async () => {
     try {
       const statsDoc = await getDocs(collection(db, 'stats'));
@@ -164,38 +157,36 @@ const Guestbook: React.FC = () => {
     }
   };
 
-  
   const loadVisitHistory = async () => {
-  try {
-    const q = query(
-      collection(db, 'visitHistory'),
-      orderBy('timestamp', 'desc'), 
-      limit(10)
-    );
-    const querySnapshot = await getDocs(q);
-    const visitsList: Visit[] = [];
+    try {
+      const q = query(
+        collection(db, 'visitHistory'),
+        orderBy('timestamp', 'desc'), 
+        limit(10)
+      );
+      const querySnapshot = await getDocs(q);
+      const visitsList: Visit[] = [];
 
-    querySnapshot.forEach((doc) => {
-      const data = doc.data();
-      const flag = getCountryFlag(data.countryCode || '');
-      visitsList.push({
-        id: doc.id,
-        date: data.date,
-        time: data.time,
-        location: data.location,
-        countryCode: data.countryCode || '',
-        flagEmoji: flag,
-        timestamp: data.timestamp
-      } as Visit);
-    });
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const flag = getCountryFlag(data.countryCode || '');
+        visitsList.push({
+          id: doc.id,
+          date: data.date,
+          time: data.time,
+          location: data.location,
+          countryCode: data.countryCode || '',
+          flagEmoji: flag,
+          timestamp: data.timestamp
+        } as Visit);
+      });
 
-    setVisits(visitsList);
-  } catch (error) {
-    console.error('Error loading visit history:', error);
-  }
-};
+      setVisits(visitsList);
+    } catch (error) {
+      console.error('Error loading visit history:', error);
+    }
+  };
 
-  // Record a visit
   const recordVisit = async (locationData: LocationData) => {
     try {
       const timestamp = Date.now();
@@ -240,7 +231,6 @@ const Guestbook: React.FC = () => {
     }
   };
 
-  // Format date
   const formatDate = (timestamp: number) => {
     const date = new Date(timestamp);
     return date.toLocaleDateString([], {
@@ -250,7 +240,6 @@ const Guestbook: React.FC = () => {
     });
   };
 
-  // Format time
   const formatTime = (timestamp: number) => {
     const date = new Date(timestamp);
     return date.toLocaleTimeString([], {
@@ -260,7 +249,6 @@ const Guestbook: React.FC = () => {
     });
   };
 
-  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -294,22 +282,8 @@ const Guestbook: React.FC = () => {
     }
   };
 
-  // Delete visitor (signature only)
-  const deleteVisitor = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this entry?')) {
-      try {
-        await deleteDoc(doc(db, 'guestbook', id));
-        await loadGuestbookEntries();
-      } catch (error) {
-        console.error('Error deleting entry:', error);
-        alert('Error deleting entry.');
-      }
-    }
-  };
-
   return (
     <div className="guestbook-content">
-      {/* Header */}
       <fieldset>
         <legend>Welcome to my Guestbook! ^^</legend>
         <p>
@@ -319,7 +293,6 @@ const Guestbook: React.FC = () => {
         </p>
       </fieldset>
 
-      {/* Website Statistics */}
       <fieldset>
         <legend>Website Statistics</legend>
         <div className="statistics">
@@ -342,33 +315,31 @@ const Guestbook: React.FC = () => {
         </div>
       </fieldset>
 
-      
       <fieldset>
-  <legend>Latest Visits ({visits.length})</legend>
-  {visits.length === 0 ? (
-    <p className="no-entries">No visit history yet.</p>
-  ) : (
-    <div className="visit-history">
-      {visits.map((visit, index) => (
-        <div key={visit.id} className="visit-item">
-          <div className="visit-header">
-            <div className="visit-info">
-              <span className="visit-number">#{index + 1}</span>  {/* ✅ Changed this */}
-              <span className="visit-flag">{visit.flagEmoji}</span>
-              <span className="visit-location">{visit.location}</span>
-            </div>
-            <div className="visit-datetime">
-              <span className="visit-date">📅 {visit.date}</span>
-              <span className="visit-time">🕐 {visit.time}</span>
-            </div>
+        <legend>Latest Visits ({visits.length})</legend>
+        {visits.length === 0 ? (
+          <p className="no-entries">No visit history yet.</p>
+        ) : (
+          <div className="visit-history">
+            {visits.map((visit, index) => (
+              <div key={visit.id} className="visit-item">
+                <div className="visit-header">
+                  <div className="visit-info">
+                    <span className="visit-number">#{index + 1}</span>
+                    <span className="visit-flag">{visit.flagEmoji}</span>
+                    <span className="visit-location">{visit.location}</span>
+                  </div>
+                  <div className="visit-datetime">
+                    <span className="visit-date">📅 {visit.date}</span>
+                    <span className="visit-time">🕐 {visit.time}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      ))}
-    </div>
-  )}
-</fieldset>
+        )}
+      </fieldset>
 
-      {/* Sign Form */}
       <fieldset>
         <legend>Sign the Guestbook</legend>
         <form onSubmit={handleSubmit} className="guestbook-form">
@@ -408,7 +379,6 @@ const Guestbook: React.FC = () => {
         </form>
       </fieldset>
 
-      {/* Guestbook Entries */}
       <fieldset>
         <legend>Signatures ({visitors.length})</legend>
 
@@ -416,28 +386,20 @@ const Guestbook: React.FC = () => {
           <p className="no-entries">Loading signatures...</p>
         ) : visitors.length === 0 ? (
           <p className="no-entries">
-            No signatures yet. Be the first to sign! 
+            No signatures yet. Be the first to sign! ✨
           </p>
         ) : (
           <div className="entries-list">
             {visitors.map((visitor, index) => (
               <div key={visitor.id} className="entry-card">
-                <div className="entry-header">
-                  <div className="entry-info">
-                    <h3 className="entry-name">#{visitors.length - index}. {visitor.name}</h3>
-                    <div className="entry-meta">
-                      <span className="entry-date"> {visitor.date}</span>
-                      <span className="entry-time"> {visitor.time}</span>
-                      <span className="entry-location"> {visitor.location}</span>
-                    </div>
+                {/* ✅ REMOVED DELETE BUTTON */}
+                <div className="entry-info">
+                  <h3 className="entry-name">#{visitors.length - index}. {visitor.name}</h3>
+                  <div className="entry-meta">
+                    <span className="entry-date">📅 {visitor.date}</span>
+                    <span className="entry-time">🕐 {visitor.time}</span>
+                    <span className="entry-location">📍 {visitor.location}</span>
                   </div>
-                  <button
-                    className="delete-btn"
-                    onClick={() => deleteVisitor(visitor.id)}
-                    title="Delete entry"
-                  >
-                    ✕
-                  </button>
                 </div>
                 <p className="entry-message">{visitor.message}</p>
               </div>
