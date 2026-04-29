@@ -3,7 +3,7 @@
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 620px; /* Wider to fit everything */
+  width: 620px;
   z-index: 9998;
   border-radius: 6px 6px 0 0;
 
@@ -23,13 +23,29 @@
   border-bottom: none;
 }
 
+/* ---- Mobile Responsive ---- */
+@media (max-width: 768px) {
+  .player-widget {
+    width: 95%;
+    max-width: 500px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .player-widget {
+    width: 98%;
+    bottom: 10px;
+  }
+}
+
 /* ---- Title Bar ---- */
 .player-title-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5px 8px;
-  height: 32px; /* Taller title bar */
+  height: 32px;
   border-radius: 6px 6px 0 0;
   cursor: default;
 
@@ -44,14 +60,33 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
+@media (max-width: 480px) {
+  .player-title-bar {
+    height: 28px;
+    padding: 4px 6px;
+  }
+}
+
 .player-title-bar-left {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+@media (max-width: 480px) {
+  .player-title-bar-left {
+    gap: 4px;
+  }
+}
+
 .player-icon {
   font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .player-icon {
+    font-size: 14px;
+  }
 }
 
 .player-title-text {
@@ -60,6 +95,12 @@
   font-weight: bold;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+@media (max-width: 480px) {
+  .player-title-text {
+    font-size: 11px;
+  }
 }
 
 /* ---- Title Bar Buttons ---- */
@@ -89,6 +130,14 @@
   );
 }
 
+@media (max-width: 480px) {
+  .player-control-btn {
+    width: 24px;
+    height: 20px;
+    font-size: 9px;
+  }
+}
+
 .player-control-btn:hover {
   background: linear-gradient(
     to bottom,
@@ -110,12 +159,25 @@
   padding: 8px 10px;
 }
 
+@media (max-width: 480px) {
+  .player-body {
+    padding: 6px 8px;
+  }
+}
+
 /* ---- Override react-h5-audio-player styles ---- */
 .player-body .rhap_container {
   background: transparent !important;
   box-shadow: none !important;
   padding: 6px 10px !important;
   min-height: 60px !important;
+}
+
+@media (max-width: 480px) {
+  .player-body .rhap_container {
+    padding: 4px 6px !important;
+    min-height: 50px !important;
+  }
 }
 
 /* Make all buttons consistent size */
@@ -128,6 +190,14 @@
   align-items: center !important;
   justify-content: center !important;
   flex-shrink: 0 !important;
+}
+
+@media (max-width: 480px) {
+  .player-body .rhap_button-clear {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 28px !important;
+  }
 }
 
 .player-body .rhap_button-clear:hover {
@@ -143,10 +213,23 @@
   gap: 4px !important;
 }
 
+@media (max-width: 480px) {
+  .player-body .rhap_controls-section {
+    margin-top: 2px !important;
+    gap: 2px !important;
+  }
+}
+
 .player-body .rhap_main-controls {
   display: flex !important;
   align-items: center !important;
   gap: 4px !important;
+}
+
+@media (max-width: 480px) {
+  .player-body .rhap_main-controls {
+    gap: 2px !important;
+  }
 }
 
 .player-body .rhap_main-controls-button {
@@ -160,11 +243,27 @@
   margin: 0 !important;
 }
 
+@media (max-width: 480px) {
+  .player-body .rhap_main-controls-button {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 28px !important;
+  }
+}
+
 /* Play button slightly bigger */
 .player-body .rhap_play-pause-button {
   width: 44px !important;
   height: 44px !important;
   font-size: 44px !important;
+}
+
+@media (max-width: 480px) {
+  .player-body .rhap_play-pause-button {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 36px !important;
+  }
 }
 
 /* Volume section */
@@ -174,11 +273,25 @@
   gap: 4px !important;
 }
 
+@media (max-width: 480px) {
+  .player-body .rhap_volume-controls {
+    gap: 2px !important;
+  }
+}
+
 .player-body .rhap_volume-button {
   width: 36px !important;
   height: 36px !important;
   font-size: 36px !important;
   flex-shrink: 0 !important;
+}
+
+@media (max-width: 480px) {
+  .player-body .rhap_volume-button {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 28px !important;
+  }
 }
 
 /* Additional controls (loop button) */
@@ -194,12 +307,27 @@
   flex-shrink: 0 !important;
 }
 
-/* ---- 7.css Progress Bar ---- */
+@media (max-width: 480px) {
+  .player-body .rhap_loop-button {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 28px !important;
+  }
+}
+
+/* ---- Progress Bar ---- */
 .player-body .rhap_progress-section {
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
   margin-bottom: 4px !important;
+}
+
+@media (max-width: 480px) {
+  .player-body .rhap_progress-section {
+    gap: 4px !important;
+    margin-bottom: 2px !important;
+  }
 }
 
 /* Hide the default progress bar */
@@ -217,10 +345,22 @@
   cursor: pointer !important;
 }
 
+@media (max-width: 480px) {
+  .player-body .rhap_progress-container {
+    height: 16px !important;
+  }
+}
+
 /* Win7 style progress bar using 7.css classes */
 .player-progress-wrapper {
   flex: 1;
   padding: 0 8px;
+}
+
+@media (max-width: 480px) {
+  .player-progress-wrapper {
+    padding: 0 4px;
+  }
 }
 
 .player-progress-wrapper [role="progressbar"] {
@@ -232,6 +372,12 @@
   overflow: hidden;
   position: relative;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  .player-progress-wrapper [role="progressbar"] {
+    height: 16px;
+  }
 }
 
 .player-progress-wrapper [role="progressbar"] > div {
@@ -253,6 +399,13 @@
   font-family: 'Segoe UI', Tahoma, sans-serif !important;
   min-width: 40px !important;
   text-align: center !important;
+}
+
+@media (max-width: 480px) {
+  .player-body .rhap_time {
+    font-size: 10px !important;
+    min-width: 35px !important;
+  }
 }
 
 /* Volume bar */
@@ -279,6 +432,13 @@
   top: -4px !important;
 }
 
+@media (max-width: 480px) {
+  .player-body .rhap_volume-indicator {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}
+
 .player-body .rhap_progress-filled {
   background: linear-gradient(
     to bottom,
@@ -297,9 +457,24 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
 }
 
+@media (max-width: 480px) {
+  .player-body .rhap_progress-indicator {
+    width: 12px !important;
+    height: 12px !important;
+    top: -3px !important;
+  }
+}
+
 /* ---- Minimized State ---- */
 .player-widget.minimized {
   width: 320px;
+}
+
+@media (max-width: 480px) {
+  .player-widget.minimized {
+    width: 90%;
+    max-width: 300px;
+  }
 }
 
 .player-widget.minimized .player-title-bar {
